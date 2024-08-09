@@ -10,9 +10,20 @@
     <div class="container">
         <h1>Tone Player</h1>
         
-        <label for="frequency">Choose a Frequency:</label>
-        <div id="frequencyDropdown">
-            <select id="frequency"></select>
+        <label for="modeToggle">Frequency Mode:</label>
+        <select id="modeToggle">
+            <option value="dropdown">Select from List</option>
+            <option value="manual">Manual Entry</option>
+        </select>
+        
+        <div id="frequencyDropdownContainer">
+            <label for="frequencyDropdown">Choose a Frequency:</label>
+            <select id="frequencyDropdown"></select>
+        </div>
+
+        <div id="manualFrequencyContainer" style="display: none;">
+            <label for="manualFrequency">Enter Frequency (Hz):</label>
+            <input type="number" id="manualFrequency" value="440" min="20" max="20000">
         </div>
         
         <label for="duration">Duration (seconds):</label>
