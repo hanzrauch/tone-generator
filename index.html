@@ -16,9 +16,12 @@
             <option value="manual">Manual Entry</option>
         </select>
         
-        <div id="frequencyDropdownContainer">
+        <div id="frequencyDropdownContainer" class="custom-dropdown">
             <label for="frequencyDropdown">Choose a Frequency:</label>
-            <select id="frequencyDropdown"></select>
+            <div id="dropdown">
+                <div id="selectedValue" class="dropdown-selected">Select a frequency</div>
+                <div id="dropdownOptions" class="dropdown-options"></div>
+            </div>
         </div>
 
         <div id="manualFrequencyContainer" style="display: none;">
