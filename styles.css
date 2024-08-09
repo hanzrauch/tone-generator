@@ -43,6 +43,48 @@ button:hover {
     background-color: #0056b3;
 }
 
-#manualFrequencyContainer {
+.custom-dropdown {
+    position: relative;
+    margin-top: 10px;
+    width: 80%;
+}
+
+#dropdown {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#selectedValue {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropdown-options {
     display: none;
+    border-top: 1px solid #ccc;
+    border-radius: 0 0 5px 5px;
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}
+
+.dropdown-options div {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dropdown-options div:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-options svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
 }
