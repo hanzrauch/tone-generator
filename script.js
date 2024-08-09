@@ -2,16 +2,19 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('frequencies.json')
         .then(response => response.json())
         .then(data => {
-            const dropdown = document.getElementById('frequencyDropdown');
+            const dropdownOptions = document.getElementById('dropdownOptions');
             data.forEach(item => {
-                const option = document.createElement('option');
-                option.value = item.value;
-                option.innerHTML = `${item.svg} ${item.label}`;
-                dropdown.appendChild(option);
+                const optionDiv = document.createElement('div');
+                optionDiv.innerHTML = `${item.svg} ${item.label}`;
+                optionDiv.dataset.value = item.value;
+                optionDiv.addEventListener('click', function() {
+                    selectFrequency(item.value, item.svg, item.label);
+                });
+                dropdownOptions.appendChild(optionDiv);
             });
         })
         .catch(error => console.error('Error loading frequencies:', error));
-    
+
     const modeToggle = document.getElementById('modeToggle');
     const frequencyDropdownContainer = document.getElementById('frequencyDropdownContainer');
     const manualFrequencyContainer = document.getElementById('manualFrequencyContainer');
@@ -25,6 +28,17 @@ document.addEventListener('DOMContentLoaded', function() {
             manualFrequencyContainer.style.display = 'block';
         }
     });
+
+    document.getElementById('selectedValue').addEventListener('click', function() {
+        document.getElementById('dropdownOptions').style.display = 
+            document.getElementById('dropdownOptions').style.display === 'none' ? 'block' : 'none';
+    });
+
+    function selectFrequency(value, svg, label) {
+        document.getElementById('selectedValue').innerHTML = `${svg} ${label}`;
+        document.getElementById('dropdownOptions').style.display = 'none';
+        document.getElementById('selectedValue').dataset.value = value;
+    }
 });
 
 document.getElementById('playButton').addEventListener('click', function() {
@@ -32,7 +46,7 @@ document.getElementById('playButton').addEventListener('click', function() {
     let frequency;
 
     if (modeToggle.value === 'dropdown') {
-        frequency = parseFloat(document.getElementById('frequencyDropdown').value);
+        frequency = parseFloat(document.getElementById('selectedValue').dataset.value);
     } else if (modeToggle.value === 'manual') {
         frequency = parseFloat(document.getElementById('manualFrequency').value);
     }
