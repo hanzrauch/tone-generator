@@ -1,0 +1,17 @@
+[
+    {
+        "label": "440 Hz",
+        "value": 440,
+        "svg": "<svg viewBox='0 0 100 100'><path d='M50 0 C20 20, 20 80, 50 100 C80 80, 80 20, 50 0 Z' /></svg>"
+    },
+    {
+        "label": "512 Hz",
+        "value": 512,
+        "svg": "<svg viewBox='0 0 100 100'><path d='M50 0 L50 100 M0 50 L100 50' /></svg>"
+    },
+    {
+        "label": "1024 Hz",
+        "value": 1024,
+        "svg": "<svg viewBox='0 0 100 100'><path d='M0 50 L100 50 M50 0 L50 100' /></svg>"
+    }
+]
